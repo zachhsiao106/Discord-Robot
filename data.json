@@ -1,7 +1,7 @@
 {
     "把機器人的令牌(TOKEN)放在下一行的雙引號中": "put your robot's TOKEN in double-quotes in the next line",
     "TOKEN": "",
-    "把要加入的伺服器ID放在下一行的雙引號中": "put the server ID to be joined in double-quotes on the next line",
+    "把要加入的伺服器主頻道ID放在下一行的雙引號中": "put the server main chennel ID to be joined in double-quotes on the next line",
     "\u516c\u544a": "",
     "ChiakiNanami_picture": [
         "picture//\u4e03\u6d77 \u5343\u79cb1.jpeg",
@@ -77,41 +77,13 @@
         "https://cdn.discordapp.com/attachments/926472516397051925/926762685893312553/unknown.png",
         "https://cdn.discordapp.com/attachments/926472516397051925/926762959575867432/IMG_5817.jpg"
     ],
-    "bank_account_id": [
-        730437942383870046
-    ],
-    "bank_account": [
-        "Zachhsiao106"
-    ],
-    "bank_money": [
-        0
-    ],
-    "daily_check_in": [
-        0
-    ],
-    "sever_member_id": [
-        730437942383870046,
-        865601430924558386,
-        846984065877409802
-    ],
-    "sever_member": [
-        "Zachhsiao106",
-        "\u5c0f\u5929\u4f7f",
-        "Wei"
-    ],
-    "xp": [
-        0,
-        2,
-        1
-    ],
-    "level": [
-        1,
-        3,
-        1
-    ],
-    "xp_cold_time": [
-        "2204042258",
-        "2204042258",
-        "2204041545"
-    ]
+    "bank_account_id": [],
+    "bank_account": [],
+    "bank_money": [],
+    "daily_check_in": [],
+    "sever_member_id": [],
+    "sever_member": [],
+    "xp": [],
+    "level": [],
+    "xp_cold_time": []
 }
