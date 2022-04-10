@@ -99,8 +99,8 @@ class 金融系統(Cog_Extension):
 
         if ctx.author.id in bank_account_id:
             if bank_account_name in bank_account:
-                if type(eval(money)) == int:
-                    if int(money) > 0:
+                if money[0] == "0":
+                    if type(eval(money)) == int:
                         if ctx.author.name != bank_account_name:
                             if bank_money[bank_account_id.index(ctx.author.id)] >= int(money):
                                 bank_account[bank_account_id.index(ctx.author.id)] = ctx.author.name
@@ -125,16 +125,16 @@ class 金融系統(Cog_Extension):
                             await ctx.send(f'{ctx.author.mention} 你耍了你自己!等一下,你做不到!(請不要給自己錢!)')
                     else:
                         bank_account[bank_account_id.index(ctx.author.id)] = ctx.author.name
+                        jdata['bank_account'] = bank_account
                         with open('data.json','w',encoding='utf8') as jfile:
-                            jdata['bank_account'] = bank_account
                             json.dump(jdata,jfile,indent=4)
-                        await ctx.send(f'{ctx.author.mention} 你耍了你自己!等一下,你做不到!(請不要給0元!)')
+                        await ctx.send(f'{ctx.author.mention} 請給正整數的金額!')
                 else:
                     bank_account[bank_account_id.index(ctx.author.id)] = ctx.author.name
                     jdata['bank_account'] = bank_account
                     with open('data.json','w',encoding='utf8') as jfile:
                         json.dump(jdata,jfile,indent=4)
-                    await ctx.send(f'{ctx.author.mention} 請給整數的金額!')
+                    await ctx.send(f'{ctx.author.mention} 你耍了你自己!等一下,你做不到!')
             else:
                 bank_account[bank_account_id.index(ctx.author.id)] = ctx.author.name
                 jdata['bank_account'] = bank_account
@@ -192,9 +192,18 @@ class 金融系統(Cog_Extension):
         bank_account_id = jdata['bank_account_id']
         bank_account = jdata['bank_account']
         bank_money = jdata['bank_money']
-        for i in range(len(bank_money)):
-            for j in range(len(bank_money) - 1):
-                if bank_money[j] <= bank_money[j + 1]:
+        
+        if ctx.author.id in bank_account_id:
+            bank_account[bank_account_id.index(ctx.author.id)] = ctx.author.name
+            jdata['bank_account'] = bank_account
+            with open('data.json','w',encoding='utf8') as jfile:
+                json.dump(jdata,jfile,indent=4)
+        else:
+            await ctx.send(f'{ctx.author.mention} 你沒有申請銀行帳戶!(申請帳戶請在伺服器裡打「~sign_up_bank_account」)!')
+        
+        for i in range(len(bank_money)-1):
+            for j in range(len(bank_money) - i - 1):
+                if bank_money[j] < bank_money[j + 1]:
                     temp_int = bank_money[j]
                     bank_money[j] = bank_money[j + 1]
                     bank_money[j + 1] = temp_int
