@@ -99,7 +99,7 @@ class 金融系統(Cog_Extension):
 
         if ctx.author.id in bank_account_id:
             if bank_account_name in bank_account:
-                if money[0] == "0":
+                if money[0] != "0":
                     if type(eval(money)) == int:
                         if ctx.author.name != bank_account_name:
                             if bank_money[bank_account_id.index(ctx.author.id)] >= int(money):

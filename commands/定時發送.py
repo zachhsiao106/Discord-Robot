@@ -21,7 +21,7 @@ class 定時發送(Cog_Extension):
                     for i in range(len(daily_check_in)):
                         self.channel = self.bot.get_channel(938699368238817320)
                         daily_check_in[i] = 1
-                        await self.channel.send(str(id) + '更新完畢!')
+                        await self.channel.send(str(i) + '更新完畢!')
                     with open('data.json','w',encoding='utf8') as jfile:
                         json.dump(jdata,jfile,indent=4)
                     jdata['daily_check_in'] = daily_check_in
